@@ -24,15 +24,22 @@ public class MyServlet1 extends GenericServlet {
         // TODO Auto-generated constructor stub
     }
 
-	@Override
-	public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.setContentType("text/html");
+    @Override
+    public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
+        // Configure le type de contenu de la réponse en HTML
+        response.setContentType("text/html");
+        
+        // Récupère le paramètre "username" de la requête
         String name = request.getParameter("username");
+        
+        // Affiche le nom récupéré dans la console
         System.out.println(name);
+        
+        // Obtient un PrintWriter pour écrire la réponse
         PrintWriter out = response.getWriter();
+        
+        // Écrit le nom récupéré dans la réponse
         out.println(name);
-		
-	}
+    }
 
 }

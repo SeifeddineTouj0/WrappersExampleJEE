@@ -25,15 +25,18 @@ public class MyServlet1 extends GenericServlet {
         // TODO Auto-generated constructor stub
     }
 
-	@Override
-	public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.setContentType ("text/html");
-        PrintWriter out = response.getWriter ();
-        System.out.println ("Servlet is called");
-        Locale loc = response.getLocale ();
-        out.println ("Locale set for this application is " + loc.toString ());
-		
-	}
+    @Override
+    public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
+        // Configure le type de contenu de la réponse en HTML
+        response.setContentType("text/html");
+        // Obtient le PrintWriter pour écrire la réponse
+        PrintWriter out = response.getWriter();
+        // Affiche un message dans la console pour indiquer que la servlet a été appelée
+        System.out.println("Servlet is called");
+        // Obtient la locale de la réponse
+        Locale loc = response.getLocale();
+        // Écrit dans la réponse HTML la locale configurée pour cette application
+        out.println("Locale set for this application is " + loc.toString());
+    }
 
 }

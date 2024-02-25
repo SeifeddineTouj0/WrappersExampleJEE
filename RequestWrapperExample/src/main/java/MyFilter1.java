@@ -43,13 +43,16 @@ public class MyFilter1 implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		// TODO Auto-generated method stub
+		// Méthode principale du filtre qui sera exécutée à chaque requête.
+				// Configure le type de contenu de la réponse en HTML
 				response.setContentType("text/html");
-		        PrintWriter out = response.getWriter();
-		        out.println("<b> <i>Filtering request and passing it to Wrapper class</i> </b> <br/>");
-		        //Calling the constructor of request wrapper class 
-		        RequestWrapper1 requestWrapper = new RequestWrapper1(request);
-		        //This method calls the next filter in the chain
-		        chain.doFilter (requestWrapper, response);
+				// Obtient le PrintWriter pour écrire la réponse
+				PrintWriter out = response.getWriter();
+				// Écrit un message HTML dans la réponse
+				out.println("<b> <i>Filtering request and passing it to Wrapper class</i> </b> <br/>");
+				// Instancie une classe wrapper pour la requête (RequestWrapper1) et la passe à la chaîne de filtres suivante
+				RequestWrapper1 requestWrapper = new RequestWrapper1(request);
+				chain.doFilter(requestWrapper, response); // Appelle le filtre suivant dans la chaîne
 		
 	}
 
